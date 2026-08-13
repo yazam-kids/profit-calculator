@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazam Kids How Much Money Will I Make?</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7faff;
+    color: #123b67;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 20px 50px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .brand {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+  }
+  .brand .y { color: #123b67; }
+  .brand .a { color: #159ed8; }
+  .brand .z { color: #5db52b; }
+  .brand .a2 { color: #f47b20; }
+  .brand .m { color: #7548b9; }
+  .brand .k { color: #13a6ad; }
+  .brand .i { color: #e84d86; }
+  .brand .d { color: #f6b918; }
+  .brand .s { color: #123b67; }
+  h1 { margin: 0; font-size: 30px; }
+  .subtitle { color: #5d7289; margin-top: 8px; }
+  .card {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(18,59,103,.10);
+    margin-bottom: 22px;
+  }
+  .inputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .hint {
+    font-size: 13px;
+    color: #7b8da0;
+    margin-top: 6px;
+  }
+  input {
+    width: 100%;
+    border: 2px solid #dbe7f2;
+    border-radius: 13px;
+    padding: 14px;
+    font-size: 18px;
+    outline: none;
+    transition: .15s;
+  }
+  input:focus { border-color: #159ed8; }
+  .results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .result {
+    border-radius: 17px;
+    padding: 20px;
+    background: #f4f8fc;
+  }
+  .result.highlight {
+    background: #eaf8ef;
+  }
+  .result .label {
+    color: #61778e;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .value {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 6px;
+  }
+  .green { color: #249447; }
+  .blue { color: #123b67; }
+  .formula {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f8f5ff;
+    border-radius: 14px;
+    color: #5e4a87;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  button {
+    border: 0;
+    background: #123b67;
+    color: white;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button:hover { opacity: .9; }
+  .footer-note {
+    text-align: center;
+    color: #8495a7;
+    font-size: 13px;
+  }
+  @media (max-width: 700px) {
+    .inputs, .results { grid-template-columns: 1fr; }
+    .brand { font-size: 34px; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="y">Y</span><span class="a">a</span><span class="z">z</span><span class="a2">a</span><span class="m">m</span>
+      <span class="k">K</span><span class="i">i</span><span class="d">d</span><span class="s">s</span>
+    </div>
+    <h1>How Much Money Will I Make?</h1>
+    <div class="subtitle">See how much money you can make from your products!</div>
+  </header>
+
+  <section class="card">
+    <div class="inputs">
+      <div>
+        <label for="materials">Money spent on supplies</label>
+        <input id="materials" type="number" min="0" step="0.01" value="50" oninput="calculate()">
+        <div class="hint">How much money you spent on supplies</div>
+      </div>
+      <div>
+        <label for="items">How many you made</label>
+        <input id="items" type="number" min="1" step="1" value="20" oninput="calculate()">
+        <div class="hint">How many products you made</div>
+      </div>
+      <div>
+        <label for="price">Price for each one</label>
+        <input id="price" type="number" min="0" step="0.01" value="8" oninput="calculate()">
+        <div class="hint">How much you want to charge for one</div>
+      </div>
+      <div>
+        <label for="fee">Selling fee</label>
+        <input id="fee" type="number" min="0" max="100" step="0.1" value="20" oninput="calculate()">
+        <div class="hint">The percent the website takes from each sale</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="results">
+      <div class="result">
+        <div class="label">Supply cost for each one</div>
+        <div id="costPerItem" class="value blue">$0.00</div>
+      </div>
+      <div class="result">
+        <div class="label">Selling fee for each one</div>
+        <div id="feePerItem" class="value blue">$0.00</div>
+      </div>
+      <div class="result highlight">
+        <div class="label">Money you make from each one</div>
+        <div id="profitPerItem" class="value green">$0.00</div>
+      </div>
+      <div class="result">
+        <div class="label">All the money from your sales</div>
+        <div id="revenue" class="value blue">$0.00</div>
+      </div>
+      <div class="result">
+        <div class="label">Money paid in selling fees</div>
+        <div id="fees" class="value blue">$0.00</div>
+      </div>
+      <div class="result highlight">
+        <div class="label">All the money you make</div>
+        <div id="totalProfit" class="value green">$0.00</div>
+      </div>
+      <div class="result">
+        <div class="label">How much of each sale you keep</div>
+        <div id="margin" class="value blue">0.00%</div>
+      </div>
+      <div class="result">
+        <div class="label">How much more you charge than your supply cost</div>
+        <div id="markup" class="value blue">0.00%</div>
+      </div>
+    </div>
+
+    <div class="formula">
+      <strong>How does it work?</strong><br>
+      Supply cost for each one = total material cost ÷ items made<br>
+      Selling fee for each one = selling price × selling fee %<br>
+      Money you make from each one = selling price − selling fee − material cost per item<br>
+      All the money you make = profit per item × items made<br>
+      How much of each sale you keep = profit per item ÷ selling price × 100
+    </div>
+  </section>
+
+  <div class="footer-note">Type your numbers above — your answers will change automatically!</div>
+</div>
+
+<script>
+function money(n) {
+  return n.toLocaleString('en-US', {style:'currency', currency:'USD'});
+}
+function calculate() {
+  const materials = Math.max(0, Number(document.getElementById('materials').value) || 0);
+  const items = Math.max(0, Number(document.getElementById('items').value) || 0);
+  const price = Math.max(0, Number(document.getElementById('price').value) || 0);
+  const feePercent = Math.max(0, Number(document.getElementById('fee').value) || 0);
+
+  const costPerItem = items > 0 ? materials / items : 0;
+  const feePerItem = price * (feePercent / 100);
+  const profitPerItem = price - costPerItem - feePerItem;
+  const revenue = price * items;
+  const totalFees = feePerItem * items;
+  const totalProfit = profitPerItem * items;
+  const margin = price > 0 ? (profitPerItem / price) * 100 : 0;
+  const markup = costPerItem > 0 ? (profitPerItem / costPerItem) * 100 : 0;
+
+  document.getElementById('costPerItem').textContent = money(costPerItem);
+  document.getElementById('feePerItem').textContent = money(feePerItem);
+  document.getElementById('profitPerItem').textContent = money(profitPerItem);
+  document.getElementById('revenue').textContent = money(revenue);
+  document.getElementById('fees').textContent = money(totalFees);
+  document.getElementById('totalProfit').textContent = money(totalProfit);
+  document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+  document.getElementById('markup').textContent = markup.toFixed(2) + '%';
+
+  const profitColor = profitPerItem >= 0 ? '#249447' : '#d84b4b';
+  document.getElementById('profitPerItem').style.color = profitColor;
+  document.getElementById('totalProfit').style.color = totalProfit >= 0 ? '#249447' : '#d84b4b';
+}
+calculate();
+</script>
+</body>
+</html>
